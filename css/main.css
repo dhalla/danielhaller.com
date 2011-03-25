@@ -1,0 +1,91 @@
+body {
+  font-family:          Georgia, Helvetica, Verdana, serif;
+  font-size:            16px;
+  color:                #454545;
+}
+
+/* BG Image */
+.fullBg {
+  position:             fixed;
+  top:                  0;
+  left:                 0;
+  overflow:             hidden;
+}
+
+/* The White Stripe */
+#whitestripe {
+    position:           absolute;
+    z-index:            50;
+    background-color:   white;
+    width:              100%;
+    top:                50%; 
+    height:             500px; 
+    margin-top:         -250px;
+    /* background: transparent url('/images/bg/tile.png') 0 0 repeat; */
+    background-color:   rgba(255, 255, 255, 0.5);
+}
+
+/* Contentbox im white Stripe */
+#content {
+    width:              930px;
+    height:             490px;
+    margin:             0 auto;
+    background-color:   rgba(255, 255, 255, 0.8);
+    padding:            5px 10px;
+    position:           relative;
+}
+
+/* Content-Elemente */
+h1 {
+    font-size:          46px;
+    text-align:         center;
+}
+h2, h3 {
+    font-size:          18px;
+    text-align:         center;
+}
+h2 {
+    margin-bottom:      20px;
+}
+h3 {
+    margin-bottom:      10px;
+}
+
+.imprint {
+    left: 800px;
+    bottom: 5px;
+    position: absolute;
+    font-size: 12px;
+}
+
+/* Text (Content-) Spalten */
+ul.content li.col {
+    float:              left;
+    width:              290px;
+    padding:            0 8px 0 8px;
+    border-left:        1px solid #B7B9C5;
+}
+
+ul.content li.col:first-child {
+    border-left:        none;
+}
+
+/* Sonst. Elemente */
+.strikethrough {
+    text-decoration:    line-through;
+}
+.justify {
+    text-align:         justify;
+}
+p {
+    line-height: 22px;
+}
+ul.links li { 
+    padding-left: 25px;
+    margin-bottom: 5px;
+}
+.xing { background: transparent url('/images/icon_sprites.png') 0 -100px no-repeat }
+.twitter { background: transparent url('/images/icon_sprites.png') 0 -50px no-repeat }
+.slideshare { background: transparent url('/images/icon_sprites.png') 0 -150px no-repeat }
+.delicious { background: transparent url('/images/icon_sprites.png') 0 0 no-repeat }
+.github { background: transparent url('/images/icon_sprites.png') 0 -200px no-repeat }
