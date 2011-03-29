@@ -4,7 +4,6 @@ body {
   color:                #454545;
 }
 
-
 /* BG Image */
 .fullBg {
   position:             fixed;
@@ -12,7 +11,6 @@ body {
   left:                 0;
   overflow:             hidden;
 }
-
 
 /* The White Stripe */
 #whitestripe {
@@ -27,7 +25,6 @@ body {
     background-color:   rgba(255, 255, 255, 0.5);
 }
 
-
 /* Contentbox im white Stripe */
 #content {
     width:              930px;
@@ -37,7 +34,6 @@ body {
     padding:            5px 10px;
     position:           relative;
 }
-
 
 /* Content-Elemente */
 h1 {
@@ -56,13 +52,13 @@ h3 {
 }
 
 #togglePage {
-    right:              15px;
-    top:                5px;
+    left:               800px;
+    bottom:             5px;
     position:           absolute;
     font-size:          12px;
 }
 
-/* Layout (Content-) Spalten */
+/* Text (Content-) Spalten */
 ul.multiCol li.col {
     float:              left;
     padding:            0 8px 0 8px;
@@ -71,13 +67,12 @@ ul.multiCol li.col {
 ul.multiCol li.col:first-child {
     border-left:        none;
 }
-ul.multiCol li._25 { width: 224px; }
-ul.multiCol li._33 { width: 295px; }
-ul.multiCol li._66 { width: 590px; }
-ul.multiCol li._75 { width: 672px; }
-
-
-
+ul._3col li.col {
+    width:              290px;
+} 
+ul._2col li.col {
+    width:              440px;
+} 
 
 /* Sonst. Elemente */
 .strikethrough {
@@ -97,8 +92,8 @@ ul.links li {
     margin-bottom: 5px;
 }
 .analytics {
-    font-size: 13px;
-    line-height: 16px;
+    font-size: 11px;
+    line-height: 14px;
 }
 .xing { background: transparent url('/img/icon_sprites.png') 0 -100px no-repeat }
 .twitter { background: transparent url('/img/icon_sprites.png') 0 -50px no-repeat }

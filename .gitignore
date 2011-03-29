@@ -1,0 +1,16 @@
+___Kopie*
+.buildpath
+.project
+.settings
+nbproject
+.svn
+.*~
+*~
+._*
+.DS_Store
+
+# Server-Logs
+/logs
+/logs/*
+
+/protected/*

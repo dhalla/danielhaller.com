@@ -1,23 +1,33 @@
-
 $(window).load(function() {
+    
     // BG-Image
 	$("#background").fullBg();
+
 });
 
 $(document).ready(function() {
 
-    // All Colums should have an equal height
-    $("li.col").equalHeights(100,300);
+    // All Colums with equal height
+    $("li.col").equalHeights();
 
-    $(".imprint a").toggle(
-        function() {
-            $("ul.content").hide();  
-            $(this).text('Zurück zur Homepage');
-        }, function() {
-            $("ul.content").show();        
-            $(this).text('Rechtliches/Impressum');
-        }
-    );
+    // Initialize anything slider
+    // see options http://css-tricks.com/examples/AnythingSlider/
+    $('#slider').anythingSlider({
+        buildArrows         : false, 
+        buildNavigation     : false,
+        autoPlay            : false,
+        easing              : "easeOutBounce"
+    });
+    
+    // External Slider Navigation
+    $('#about').click(function() {
+        $('#slider').anythingSlider(1);
+
+    });
+    $('#more').click(function() {
+        $('#slider').anythingSlider(2);
+    });
+
 
 });
 
