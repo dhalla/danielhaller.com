@@ -8,8 +8,8 @@
 
 /******* SET DEFAULT DIMENSIONS HERE ********/
 div.anythingSlider {
-	width: 700px;
-	height: 390px;
+	width: 880px;
+	height: 340px;
 	margin: 0 auto;
 	overflow: hidden; /* needed for Opera and Safari */
 }

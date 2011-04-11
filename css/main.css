@@ -41,32 +41,54 @@ body {
 
 /* Content-Elemente */
 h1 {
-    font-size:          46px;
+    font-size:          36px;
     text-align:         center;
 }
 h2, h3 {
     font-size:          18px;
-    text-align:         center;
+    margin-bottom:     10px;
 }
-h2 {
-    margin-bottom:      20px;
-}
-h3 {
-    margin-bottom:      10px;
-}
-
+h2 { text-align: center; }
+h3 { text-align: left; }
 #togglePage {
     right:              15px;
     top:                5px;
     position:           absolute;
     font-size:          12px;
 }
+#mugshot {
+  -moz-transform:rotate(-5deg);
+  -webkit-transform:rotate(-5deg);
+  -o-transform:rotate(-5deg);
+  transform:rotate(-5deg);
+  margin: 20px;
+  float: right;
+}
+
+/* Slider */
+#navigation {
+    margin: 0 auto 30px auto;
+    text-align: center;
+}
+#navigation li {
+    display: inline;
+    margin-right: 20px;
+}
+#navigation li.last {
+    margin-right: 0px;
+}
+#content .anythingSlider {
+    padding: 0 0 5px 0;
+}
+#content .anythingSlider .anythingWindow {
+    border: none;
+}
 
 /* Layout (Content-) Spalten */
 ul.multiCol li.col {
     float:              left;
     padding:            0 8px 0 8px;
-    border-left:        1px solid #B7B9C5;
+    border-left:        1px solid red; /* #B7B9C5 */;
 }
 ul.multiCol li.col:first-child {
     border-left:        none;
@@ -77,6 +99,25 @@ ul.multiCol li._66 { width: 590px; }
 ul.multiCol li._75 { width: 672px; }
 
 
+/* Tagcloud */
+
+#skills {
+
+        text-align: center;
+}
+
+#skills li {
+    display: inline;
+
+margin: 5px;
+    line-height: 130%;
+}
+
+#skills li._1 { font-size: .70em; font-weight: 100; }
+#skills li._2 { font-size: .85em; font-weight: 200; }
+#skills li._3 { font-size: 1em; font-weight: 300; }
+#skills li._4 { font-size: 1.15em; font-weight: 400; }
+#skills li._5 { font-size: 1.30em; font-weight: 500; }
 
 
 /* Sonst. Elemente */
