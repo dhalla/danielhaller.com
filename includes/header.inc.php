@@ -16,8 +16,10 @@
     <link href="/css/anythingslider.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="/css/main.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="/css/print.css" rel="stylesheet" type="text/css" media="print" />
+
     <!--[if lt IE 7]>
         <link href="/css/ie6.css" rel="stylesheet" type="text/css">
     <![endif]--> 
+    
     
     

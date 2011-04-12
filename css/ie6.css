@@ -1,0 +1,13 @@
+/* Get a new Browser, for Gods sake! */
+#ie {
+    z-index: 1000;
+    position: absolute;
+    display: block;
+    text-align: left;
+    border: 1px solid #ccc;
+    top: 20px;
+    left: 25%;
+    width: 50%;
+    padding: 5px;
+    background-color: white;
+}

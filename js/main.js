@@ -15,7 +15,7 @@ $(document).ready(function() {
     $("li.col").equalHeights();
 
     // Initialize anything slider
-    // see options http://css-tricks.com/examples/AnythingSlider/
+    // https://github.com/ProLoser/AnythingSlider/wiki/
     $('#slider').anythingSlider({
         // Appearance
         width               : null,      // Override the default CSS width
@@ -28,8 +28,8 @@ $(document).ready(function() {
         enableNavigation    : true,      // if false, navigation links will still be visible, but not clickable.
         appendControlsTo    : $('#navigation'),      // A HTML element (jQuery Object, selector or HTMLNode) to which the controls will be appended if not null
         autoPlay            : false,
-        navigationFormatter : function(index, panel){
-          return " Panel #" + index; // This would have each tab with the text 'Panel #X' where X = index
+        navigationFormatter : function(index, panel) {
+          return panel.attr('title'); 
         },        
         
         // Callbacks
@@ -47,6 +47,12 @@ $(document).ready(function() {
     DHA.init();
     
 });
+
+
+// Navigation Caption
+function navCaption(index) {
+    
+}
 
 
 // Check if arrow to Profil-Picture must to be visible
