@@ -5,7 +5,11 @@ $(window).load(function() {
 
 });
 
+
 $(document).ready(function() {
+
+    // JS is enabled
+    $("body").removeClass('nojs');
 
     // All Colums with equal height
     $("li.col").equalHeights();
@@ -26,21 +30,45 @@ $(document).ready(function() {
         autoPlay            : false,
         navigationFormatter : function(index, panel){
           return " Panel #" + index; // This would have each tab with the text 'Panel #X' where X = index
-        }        
+        },        
+        
+        // Callbacks
+        onBeforeInitialize  : null,      // Callback before the plugin initializes
+        onInitialized       : null,      // Callback when the plugin finished initializing
+        onShowStart         : null,      // Callback on slideshow start
+        onShowStop          : null,      // Callback after slideshow stops
+        onShowPause         : null,      // Callback when slideshow pauses
+        onShowUnpause       : null,      // Callback when slideshow unpauses - may not trigger properly if user clicks on any controls
+        onSlideInit         : null,      // Callback when slide initiates, before control animation
+        onSlideBegin        : function() { checkArrowVisibility(); },      // Callback before slide animates
+        onSlideComplete     : function() { checkArrowVisibility(); },       // Callback when slide completes       
     });
+           
+    DHA.init();
     
-    // External Slider Navigation
-/*
-    $('#about').click(function() {
-        $('#slider').anythingSlider(1);
-
-    });
-    $('#more').click(function() {
-        $('#slider').anythingSlider(2);
-    });
-*/
-
-
 });
 
+
+// Check if arrow to Profil-Picture must to be visible
+function checkArrowVisibility() {
+
+    $('#navigation a:not(.panel1)').click(function() {
+        $('#personalArrow').fadeOut("fast");
+        return;
+    }); 
+    if ($('#about').hasClass('activePage')) {
+        $('#personalArrow').fadeIn("fast");
+    } else {
+        $('#personalArrow').fadeOut("fast");
+    }
+    
+};
+    
+    
+var DHA = {
  
+    init: function() {
+
+    }
+    
+}
