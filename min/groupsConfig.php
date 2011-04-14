@@ -17,10 +17,10 @@ return array(
     ),
     
     'js_min' => array(
-        '//js/jquery.fullBg.js', 
         '//js/jquery.equalheights.js', 
         '//js/jquery.easing.1.2.js',
         '//js/jquery.anythingslider.min.js',
+        '//js/jquery.fullBg.js', 
         '//js/main.js'
     ),
  

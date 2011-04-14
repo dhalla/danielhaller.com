@@ -9,6 +9,12 @@
     - Mobile Version online packen
     - automatische Umleitung erstellen
     - xxxxxxxxx Validierung und JS-Fehler beachten
+    
+    - Minify rauswerfen, Ladereihenfolge ändern, ansonsten One-Pager bauen
+    - Overflow Auto für Content, auf Clearfix achten
+    - Shadow an Druckversion absoften
+    - IE durchchecken
+    - Farbverlauf in Druckversion raus
 
 
 */
