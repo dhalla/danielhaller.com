@@ -23,7 +23,7 @@
     
     <!-- Minified CSS  -->
     <link type="text/css" rel="stylesheet" href="/min/?g=css_min" />
-    <link type="text/css" rel="stylesheet"href="/css/print.css" media="print" />
+    <link type="text/css" rel="stylesheet" href="/css/print.css" media="print" />
     
     <!--[if lt IE 7]>
         <link href="/css/ie6.css" rel="stylesheet" type="text/css">
