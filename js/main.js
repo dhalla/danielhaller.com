@@ -1,16 +1,19 @@
 /*
-
+    
+    TODO:
+    
+    - IE durchchecken
+    - Mobile Version online packen
+    - automatische Umleitung erstellen
+        
     - xxxxxxxxx IE6/7 Fallback und Hinweis
     - xxxxxxxxx Performanceoptimierung (Minify installieren)
     - xxxxxxxxx NoJS
     - xxxxxxxxx Druckversion
-    - Navigation verschönern (Bulletpoints, L/R-Pfeile und Tooltips)
-    - Reload für Rechliches/Impressum verhindern, One-Pager erstellen
-    - Mobile Version online packen
-    - automatische Umleitung erstellen
     - xxxxxxxxx Validierung und JS-Fehler beachten
-    
-    - IE durchchecken
+
+    - Navigation verschönern (Bulletpoints, L/R-Pfeile und Tooltips)
+    - Reload für Rechliches/Impressum verhindern, One-Pager erstellen, History-Fkt. bedenken
 
 */
 
