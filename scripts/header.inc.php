@@ -1,4 +1,3 @@
-
     <!-- Meta -->
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <meta name="keywords" content="Daniel Haller, Portfolio, Kontakt" />
@@ -14,13 +13,7 @@
     <link href="http://yui.yahooapis.com/2.8.2r1/build/reset/reset-min.css" rel="stylesheet" type="text/css" />
     <link href="/css/anythingslider.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="/css/main.css" rel="stylesheet" type="text/css" media="screen" />
-
-    <!-- JS 
-    Use minified versions instead 
-    <link href="/css/anythingslider.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="/css/main.css" rel="stylesheet" type="text/css" media="screen" />
-    -->
-    
+   
     <!-- Minified CSS  -->
     <link type="text/css" rel="stylesheet" href="/min/?g=css_min" />
     <link type="text/css" rel="stylesheet" href="/css/print.css" media="print" />
@@ -32,11 +25,4 @@
     <!--[if lt IE 8]>
         <link href="/css/ie7.css" rel="stylesheet" type="text/css">
     <![endif]-->     
-    
-    
- 
-    
-
-    
-    
     

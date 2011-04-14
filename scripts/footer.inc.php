@@ -1,7 +1,6 @@
+    <?php if (!$_GET['print']): ?> 
     <!-- JS -->    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
-    
-    <?php if (!$_GET['print']): ?>
     
     <script type="text/javascript" src="/js/jquery.fullBg.js"></script>
     <script type="text/javascript" src="/js/jquery.anythingslider.min.js"></script>  
@@ -11,16 +10,14 @@
           
     <!-- Use minified versions instead of single Files 
     <script type="text/javascript" src="/min/?g=js_min_all"></script>
-    -->
-    
+    -->   
     <?php else: ?>
      
         <script type="text/javascript">
             window.print();
         </script>
     
-    <?php endif; ?>   
-    
+    <?php endif; ?>      
     <!-- Analytics -->
     <script type="text/javascript">
       var _gaq = _gaq || [];
@@ -34,7 +31,4 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
     </script>    
-    
-
-
-    
+       
