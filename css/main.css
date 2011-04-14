@@ -55,9 +55,9 @@ noscript p {
     width:              930px;
     margin:             0 auto 20px auto;
     border:             2px solid #ccc;
-    -webkit-box-shadow: 5px 5px 3px #454545;
-    -moz-box-shadow:    5px 5px 3px #454545;
-    box-shadow:         5px 5px 3px #454545;     
+    -webkit-box-shadow: 5px 5px 5px #81868E;
+    -moz-box-shadow:    5px 5px 5px #81868E;
+    box-shadow:         5px 5px 5px #81868E;     
 }
 #content {
     width:              930px;

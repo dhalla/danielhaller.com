@@ -12,16 +12,18 @@
 
     <!-- CSS -->
     <link href="http://yui.yahooapis.com/2.8.2r1/build/reset/reset-min.css" rel="stylesheet" type="text/css" />
-
-    <!-- 
-    Use minified versions instead
     <link href="/css/anythingslider.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="/css/main.css" rel="stylesheet" type="text/css" media="screen" />
-     -->
+
+    <!-- JS 
+    Use minified versions instead 
+    <link href="/css/anythingslider.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/css/main.css" rel="stylesheet" type="text/css" media="screen" />
+    -->
     
-    <!-- Minified CSS -->
+    <!-- Minified CSS  -->
     <link type="text/css" rel="stylesheet" href="/min/?g=css_min" />
-    <link href="/css/print.css" rel="stylesheet" type="text/css" media="print" />
+    <link type="text/css" rel="stylesheet"href="/css/print.css" media="print" />
     
     <!--[if lt IE 7]>
         <link href="/css/ie6.css" rel="stylesheet" type="text/css">
@@ -30,6 +32,9 @@
     <!--[if lt IE 8]>
         <link href="/css/ie7.css" rel="stylesheet" type="text/css">
     <![endif]-->     
+    
+    
+ 
     
 
     

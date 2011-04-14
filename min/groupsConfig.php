@@ -16,11 +16,17 @@ return array(
         '//css/main.css'
     ),
     
-    'js_min' => array(
+    'js_min_all' => array(
         '//js/jquery.equalheights.js', 
+        '//js/jquery.fullBg.js',
         '//js/jquery.easing.1.2.js',
         '//js/jquery.anythingslider.min.js',
-        '//js/jquery.fullBg.js', 
+        '//js/main.js'
+    ),
+
+    'js_min_unimportant' => array(
+        '//js/jquery.equalheights.js', 
+        '//js/jquery.easing.1.2.js',
         '//js/main.js'
     ),
  
