@@ -1,3 +1,18 @@
+/*
+
+    - xxxxxxxxx IE6/7 Fallback und Hinweis
+    - xxxxxxxxx Performanceoptimierung (Minify installieren)
+    - xxxxxxxxx NoJS
+    - xxxxxxxxx Druckversion
+    - Navigation verschönern (Bulletpoints, L/R-Pfeile und Tooltips)
+    - Reload für Rechliches/Impressum verhindern, One-Pager erstellen
+    - Mobile Version online packen
+    - automatische Umleitung erstellen
+    - xxxxxxxxx Validierung und JS-Fehler beachten
+
+
+*/
+
 $(window).load(function() {
     
     // BG-Image
@@ -23,13 +38,13 @@ $(document).ready(function() {
         easing              : "easeOutBounce",   
 
         // Navigation
-        buildArrows         : false,      // If true, builds the forwards and backwards buttons
+        buildArrows         : false,
         buildNavigation     : true,      // If true, builds a list of anchor links to link to each panel
         enableNavigation    : true,      // if false, navigation links will still be visible, but not clickable.
         appendControlsTo    : $('#navigation'),      // A HTML element (jQuery Object, selector or HTMLNode) to which the controls will be appended if not null
         autoPlay            : false,
         navigationFormatter : function(index, panel) {
-          return panel.attr('title'); 
+            return panel.attr('title'); 
         },        
         
         // Callbacks
@@ -41,7 +56,7 @@ $(document).ready(function() {
         onShowUnpause       : null,      // Callback when slideshow unpauses - may not trigger properly if user clicks on any controls
         onSlideInit         : null,      // Callback when slide initiates, before control animation
         onSlideBegin        : function() { checkArrowVisibility(); },      // Callback before slide animates
-        onSlideComplete     : function() { checkArrowVisibility(); },       // Callback when slide completes       
+        onSlideComplete     : function() { checkArrowVisibility(); }       // Callback when slide completes       
     });
            
     DHA.init();
@@ -49,24 +64,19 @@ $(document).ready(function() {
 });
 
 
-// Navigation Caption
-function navCaption(index) {
-    
-}
-
-
 // Check if arrow to Profil-Picture must to be visible
 function checkArrowVisibility() {
 
-    $('#navigation a:not(.panel1)').click(function() {
+    $('#navigation a:not(.panel2)').click(function() {
         $('#personalArrow').fadeOut("fast");
         return;
     }); 
+    
     if ($('#about').hasClass('activePage')) {
         $('#personalArrow').fadeIn("fast");
     } else {
         $('#personalArrow').fadeOut("fast");
-    }
+    };
     
 };
     

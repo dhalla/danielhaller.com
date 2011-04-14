@@ -1,3 +1,5 @@
+<?php if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start("ob_gzhandler"); else ob_start(); ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -7,23 +9,23 @@
     <title>Daniel Haller</title>
     <link rel="shortcut icon" href="/favicon.ico" />
 
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/header.inc.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/scripts/header.inc.php'); ?>
     
 </head>
 <body class="nojs">
 
-    <img id="background" alt="" src="/img/bg/3.jpg" class="fullBg" /> 
+    <img id="background" alt="" src="/img/bg/bg.jpg" class="fullBg" /> 
 
-    <noscript><p>Hinweis: Bitte aktivieren Sie Javascript in Ihrem Browser, da die Seite sonst nicht korrekt angezeigt werden kann.</p></noscript>
-    <div id="ie"><p>Willkommen: Das beste Surf-Erlebnis haben Sie mit einem modernen Browser, den Sie sich <a href="http://windows.microsoft.com/de-DE/internet-explorer/products/ie/home" target="_blank">hier bequem herunterladen</a> können. Ihr aktueller Browser ist seit fast 10 Jahren so gar nicht mehr aktuell.</p></div>
-    
+    <noscript><p><strong>Hinweis:</strong> Sie haben Javascript deaktiviert und sehen daher nur eine eingeschränkte Version dieser Seite. <br />Versuchen Sie es mal mit aktiviertem JS, dann sieht die Welt gleich viel bunter aus.</p></noscript>
+    <div id="ie"><p><strong>Hinweis:</strong> Das beste Surf-Erlebnis haben Sie mit einem modernen Browser, den Sie sich <a href="http://windows.microsoft.com/de-DE/internet-explorer/products/ie/home" target="_blank">hier bequem und kostenfrei herunterladen</a> können. <br />Der Browser, den Sie gerade verwenden, ist eine 10 Jahre alte Innovationsbremse und wurde daher bei der Entwicklung dieser Seite ignoriert.</p></div>
+     
     <div id="whitestripe">
         <div id="content">
 
-            <p id="togglePage"><a href="/index.htm">&laquo; Zurück</a></p>           
+            <p id="togglePage"><a href="/index.htm">&laquo; Zurück</a> | <a href="<?php echo $_SERVER['PHP_SELF'];?>?print=1" target="_blank">Druckversion</a></p>           
 
             <h1>Daniel Haller</h1>
-            <h2>Don't panic. I'm from <span class="strikethrough">Frankfurt</span> the Internet.</h2>
+            <!-- <h2>Don't panic. I'm from <span class="strikethrough">Frankfurt</span> the Internet.</h2> -->
 
             <ul class="multiCol _2col">
                 <li class="col _33">
@@ -38,6 +40,7 @@
                         Telefon: 069 97690525 <br />
                         Mobil: 0163 5677633
                     </p>
+                    <p>Hintergrundbild von: <br /> <a href="http://www.flickr.com/photos/gertrudk/109999201/" target="_blank">Gertrud K. (flickr)</a></p>
                 </li>
                 <li class="col _66">
                     <h3>Hinweis zu Google Analytics</h3>
@@ -53,7 +56,7 @@
         </div>        
     </div>
     
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/footer.inc.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/scripts/footer.inc.php'); ?>
     
 </body>
 </html>

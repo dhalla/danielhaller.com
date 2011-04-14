@@ -3,8 +3,15 @@ body {
   font-size:            16px;
   color:                #454545;
 }
-#ie {
-    display:            hidden;
+#ie, #print {
+    display:            none;
+}
+noscript p {
+    text-align:         center;
+    background-color:   #8E0101;
+    color:              white;
+    padding:            5px;
+    border-bottom:      1px solid black;
 }
 
 
@@ -25,30 +32,52 @@ body {
 /* The White Stripes */
 .nojs #whitestripe {
     height:             auto;
-    background-color:   #ccc;
     position:           relative;
+    margin:             0;
+    top:                0;
 }
 #whitestripe {
     position:           absolute;
     z-index:            50;
-    background-color:   white;
     width:              100%;
     top:                50%; 
-    height:             520px; 
-    margin-top:         -260px;
-    background-color:   rgba(255, 255, 255, 0.4);
+    height:             460px; 
+    margin-top:         -230px;
+    background-color:   white;
+    background-color:   rgba(255, 255, 255, 0.7); 
 }
 
 
 /* ---------------------------------------- /*
 /* Contentbox im white Stripe */
+.nojs #content {
+    height:             auto;
+    width:              930px;
+    margin:             0 auto 20px auto;
+    border:             2px solid #ccc;
+    -webkit-box-shadow: 5px 5px 3px #454545;
+    -moz-box-shadow:    5px 5px 3px #454545;
+    box-shadow:         5px 5px 3px #454545;     
+}
 #content {
     width:              930px;
-    height:             510px;
+    height:             450px;
     margin:             0 auto;
-    background-color:   rgba(255, 255, 255, 0.8);
     padding:            5px 10px;
     position:           relative;
+    background-color:   rgba(255, 255, 255, 0.8);
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        right bottom,
+        color-stop(0.19, rgb(255,255,255)),
+        color-stop(1, rgb(232,240,255))
+    );
+    background-image: -moz-linear-gradient(
+        left top,
+        rgb(255,255,255) 19%,
+        rgb(232,240,255) 100%
+    );
 }
 
 
@@ -84,6 +113,9 @@ body {
 
 /* ---------------------------------------- /*
 /* Spalten-Layout */
+ul.multiCol {
+    overflow: auto;
+}
 ul.multiCol li.col {
     float:              left;
     padding:            0 20px 0 20px;
@@ -110,6 +142,9 @@ h2 {
     margin-bottom:      0px;
     font-size:          16px;
 }
+.nojs h3 { 
+    margin-top:         50px;
+}
 h3 { 
     text-align:         left; 
     margin:             30px 20% 20px 0px; 
@@ -129,15 +164,19 @@ h3 {
     -webkit-transform:  rotate(-7deg);
     -o-transform:       rotate(-7deg);
     transform:          rotate(-7deg);
-    margin:             -60px 10px 0 20px;
+    margin:             -45px 20px 0 20px;
     float:              right;
     z-index:            5;
+    -webkit-box-shadow: 4px 4px 3px #ccc;
+    -moz-box-shadow:    4px 4px 3px #ccc;
+    box-shadow:         4px 4px 3px #ccc;      
 }
 #personalArrow {
     position:           absolute;
     right:              130px; 
     top:                20px;
     z-index:            10;
+    display:            none; 
 }
 
 
@@ -146,13 +185,16 @@ h3 {
 #skills {
     text-align:         center;
     margin:             0 auto;
+    width:              100%;
 }
 #skills li {
     display:            inline;
     margin:             5px;
     line-height:        1.5em;
-    white-space:        nowrap;
 }
+#skills li span {
+    white-space:        nowrap;
+} 
 #skills li._1 { font-size: .7em; font-weight: 100; }
 #skills li._2 { font-size: .9em; font-weight: 200; }
 #skills li._3 { font-size: 1.2em; font-weight: 300; }

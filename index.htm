@@ -1,3 +1,5 @@
+<?php if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start("ob_gzhandler"); else ob_start(); ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -7,24 +9,24 @@
     <title>Daniel Haller</title>
     <link rel="shortcut icon" href="/favicon.ico" />
 
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/header.inc.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/scripts/header.inc.php'); ?>
     
 </head>
 <body class="nojs">
 
-    <img id="background" alt="" src="/img/bg/3.jpg" class="fullBg" /> 
+    <img id="background" alt="" src="/img/bg/bg.jpg" class="fullBg" /> 
 
-    <noscript><p>Hinweis: Bitte aktivieren Sie Javascript in Ihrem Browser, da die Seite sonst nicht korrekt angezeigt werden kann.</p></noscript>
-    <div id="ie"><p>Willkommen: Das beste Surf-Erlebnis haben Sie mit einem modernen Browser, den Sie sich <a href="http://windows.microsoft.com/de-DE/internet-explorer/products/ie/home" target="_blank">hier bequem herunterladen</a> können. Ihr aktueller Browser ist seit fast 10 Jahren so gar nicht mehr aktuell.</p></div>
+    <noscript><p><strong>Hinweis:</strong> Sie haben Javascript deaktiviert und sehen daher nur eine eingeschränkte Version dieser Seite. <br />Versuchen Sie es mal mit aktiviertem JS, dann sieht die Welt gleich viel bunter aus.</p></noscript>
+    <div id="ie"><p><strong>Hinweis:</strong> Das beste Surf-Erlebnis haben Sie mit einem modernen Browser, den Sie sich <a href="http://windows.microsoft.com/de-DE/internet-explorer/products/ie/home" target="_blank">hier bequem und kostenfrei herunterladen</a> können. <br />Der Browser, den Sie gerade verwenden, ist eine 10 Jahre alte Innovationsbremse und wurde daher bei der Entwicklung dieser Seite ignoriert.</p></div>
     
     <div id="whitestripe">
         <div id="content">
 
-            <p id="togglePage"><a href="/pages/imprint.htm">Rechtliches/Impressum</a><!-- | <a href="#">Drucken</a> --></p>      
+            <p id="togglePage"><a href="/pages/imprint.htm">Rechtliches/Impressum</a> | <a href="<?php echo $_SERVER['PHP_SELF'];?>?print=1" target="_blank">Druckversion</a></p>      
 
             <!-- Gibts schickere Fonts als Georgia? -->
             <h1>Daniel Haller</h1>
-            <h2>Don't panic. I'm from <span class="strikethrough">Frankfurt</span> the Internet.</h2>
+            <!-- <h2>Don't panic. I'm from <span class="strikethrough">Frankfurt</span> the Internet.</h2> -->
             <img src="/img/pfeil.png" alt="" id="personalArrow" />
 
             <!-- Slider Navigation w/Ballontips -->
@@ -34,29 +36,22 @@
             <!-- Content Slider -->
             <ul id="slider">
 
-                <!-- Sliderseite: Über mich / Bild -->
-                <li id="about" title="Über mich">
-                    <h3>Über mich</h3>
-                    <img src="/img/dha.png" alt="Daniel Haller" id="mugshot" />
-                    <p>Ich bin 32 Jahre alt, diplomierter Media System Designer und Fachinformatiker für Systemintegration. Es soll Leute geben, die mich für einen Nerd halten, was aber nicht stimmt - ich begeistere mich eben einfach nur für Technik. Seit etwa 2001 äußert sich diese Begeisterung vornehmlich in meiner Leidenschaft für digitale Medien mit all ihren Facetten: Web-Entwicklung im Back- und Frontend, User Experience, Gestaltung und Design, Social Media, Netzpolitik, Mobile Media, usw.</p>
-                    <p>Derzeit lebe ich diese Leidenschaft in einer Internet-Agentur in Frankfurt, wo ich als Entwickler und technischer Manager seit fast 4 Jahren für einige große und bekannte Marken arbeite.</p>
-                    <p>Und richtig, das hier ist kein Blog. Ich nutze diesen Server für Spielereien und zum Ausprobieren von Dingen und dachte mir, dann könnte zu Anfang ja auch irgendwas informatives stehen. Irgendwas, was nicht so viel Arbeit macht wie ein Blog. Zum Beispiel dieser Text hier.</p>
-                </li>
-
                 <!-- Sliderseite: Skillset -->
                 <li id="skillset" title="Skillset">                
                     <h3>Skillset</h3>
                     <ul id="skills">
                         <li class="_3">Anforderungsanalysen</li>
-                        <li class="_4">CSS</li>
-                        <li class="_4">Beratung/Consulting</li>
-                        <li class="_3">Doctrine ORM</li>
+                        <li class="_4"><span>Best Practice</span></li>
+                        <li class="_5">CSS</li>
+                        <li class="_4"><span>Beratung/Consulting</span></li>
+                        <li class="_3"><span>Doctrine ORM</span></li>
                         <li class="_2">Drupal</li>
                         <li class="_3">git</li>
-                        <li class="_1">Facebook API</li>                        
+                        <li class="_1"><span>Facebook API</span></li>                        
                         <li class="_5">HTML/XML</li>
                         <li class="_2">HTML5</li>                        
-                        <li class="_5">Humor</li>                        
+                        <li class="_5">Humor</li>  
+                        <li class="_2">IA</li>                                              
                         <li class="_4">iWebKit</li>
                         <li class="_3">Javascript</li>
                         <li class="_3">jQTouch</li>
@@ -65,6 +60,7 @@
                         <li class="_4">LESS</li>
                         <li class="_2">Linux</li>
                         <li class="_3">MacOS</li>
+                        <li class="_4"><span>Mobile Strategien</span></li>                        
                         <li class="_4">MySQL</li>
                         <li class="_3">netbiscuits</li>
                         <li class="_5">PHP</li>
@@ -72,19 +68,28 @@
                         <li class="_4">Projektplanung</li>
                         <li class="_5">REST/SOAP-APIs</li>
                         <li class="_4">Publizieren</li>
-                        <li class="_4">QA</li>                        
+                        <li class="_3">QA</li>                        
                         <li class="_3">Scrum</li>
                         <li class="_3">Smarty</li>
                         <li class="_2">SVN</li>
-                        <li class="_4">symfony MVC Framework (1.x)</li>
+                        <li class="_4"><span>symfony MVC Framework (1.x)</span></li>
                         <li class="_4">Teamleitung</li> 
                         <li class="_4">Teamwork</li>                        
-                        <li class="_5">Techn. Konzeption</li>
+                        <li class="_5"><span>Techn. Konzeption</span></li>
                         <li class="_2">Typo3</li>
-                        <li class="_1">Typolight/Contao</li>
-                        <li class="_4">Wordpress</li>
-                        <li class="_3">YAML (CSS)</li>
+                        <li class="_1"><span>Typolight/Contao</span></li>
+                        <li class="_2">UX</li>                        
+                        <li class="_4">Wordpress</li>                      
+                        <li class="_3"><span>YAML (CSS)</span></li>
                     </ul>
+                </li>
+
+                <!-- Sliderseite: Über mich / Bild -->
+                <li id="about" title="Über mich">
+                    <h3>Über mich</h3>
+                    <img src="/img/dha.jpg" alt="Daniel Haller" id="mugshot" />
+                    <p>Ich bin 32 Jahre alt, diplomierter Media System Designer, Fachinformatiker für Systemintegration und hochgradig technikbegeistert. Seit etwa 2001 äußert sich diese Begeisterung vornehmlich in meiner Leidenschaft für digitale Medien mit all ihren Facetten: Web-Entwicklung im Back- und Frontend, User Experience, Gestaltung und Design, Social Media, Netzpolitik, Mobile Media, usw.</p>
+                    <p>Derzeit lebe ich diese Leidenschaft in einer Internet-Agentur in Frankfurt, wo ich als Entwickler und technischer Manager seit fast 4 Jahren für einige große und bekannte Marken im digitalen Nirvana plane, denke, berate und programmiere.</p>
                 </li>
                 
                 <!-- Sliderseite: Weitere Links / Kontakt -->
@@ -108,13 +113,14 @@
                                 Mein <strong>Portfolio</strong> stelle ich auf persönliche Nachfrage gern zur Verfügung.
                             </p>
                         </li>                
-                    </ul>       
+                    </ul>   
                 </li>
+                
             </ul>                          
         </div>        
     </div>
-    
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/includes/footer.inc.php'); ?>
+        
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/scripts/footer.inc.php'); ?>
     
 </body>
 </html>
