@@ -2,7 +2,7 @@
     
     TODO:
     
-    - IE durchchecken
+    - xxxxxxxxx IE durchchecken
     - Mobile Version online packen
     - automatische Umleitung erstellen
         
@@ -14,6 +14,7 @@
 
     - Navigation verschönern (Bulletpoints, L/R-Pfeile und Tooltips)
     - Reload für Rechliches/Impressum verhindern, One-Pager erstellen, History-Fkt. bedenken
+    - href-Attribute der Druckversion auslesen und anzeigen
 
 */
 
