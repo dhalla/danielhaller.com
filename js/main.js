@@ -3,8 +3,8 @@
     TODO:
     
     - xxxxxxxxx IE durchchecken
-    - Mobile Version online packen
-    - automatische Umleitung erstellen
+    - xxxxxxxxx Mobile Version online packen
+    - automatische Umleitung erstellen (einmaliger! JS-Redirect m. Cookie und Confirm-Box, Achtung, bei Click auf Std-Website auch Cookie setzen!)
         
     - xxxxxxxxx IE6/7 Fallback und Hinweis
     - xxxxxxxxx Performanceoptimierung (Minify installieren)
