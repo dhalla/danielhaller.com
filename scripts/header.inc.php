@@ -11,8 +11,8 @@
 
     <!-- CSS -->
     <link href="http://yui.yahooapis.com/2.8.2r1/build/reset/reset-min.css" rel="stylesheet" type="text/css" />
-    <link href="/css/anythingslider.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="/css/main.css" rel="stylesheet" type="text/css" media="screen" />
+    <!-- <link href="/css/anythingslider.css" rel="stylesheet" type="text/css" media="screen" /> -->
+    <!-- <link href="/css/main.css" rel="stylesheet" type="text/css" media="screen" /> -->
    
     <!-- Minified CSS  -->
     <link type="text/css" rel="stylesheet" href="/min/?g=css_min" />

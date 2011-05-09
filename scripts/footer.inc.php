@@ -12,9 +12,18 @@
     <script type="text/javascript" src="/min/?g=js_min_all"></script>
     -->   
     <?php else: ?>
-     
+    
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
         <script type="text/javascript">
+            
             window.print();
+            
+            $('body').addClass('print');
+            $('a:not(#togglePage a)').each(function(index) {
+                var href = $(this).attr('href');
+                $(this).append(' <span class="link">(' + href + ')</span>');
+            });
+            
         </script>
     
     <?php endif; ?>      

@@ -33,7 +33,7 @@ $(document).ready(function() {
 
     // All Colums with equal height
     $("li.col").equalHeights();
-
+    
     // Initialize anything slider
     // https://github.com/ProLoser/AnythingSlider/wiki/
     $('#slider').anythingSlider({

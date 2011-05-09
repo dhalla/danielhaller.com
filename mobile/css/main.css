@@ -12,6 +12,13 @@
 #jqt ul li.text .center {
     text-align: center;
 }
+#mugshot {
+    -moz-transform:     rotate(-8deg);
+    -webkit-transform:  rotate(-8deg);
+    -o-transform:       rotate(-8deg);
+    transform:          rotate(-8deg);
+    margin-bottom:      12px;
+}
 
 /* Mehr-Links */
 .xing { background: transparent url('/img/xing_icon.png') 5px 10px no-repeat; }
@@ -19,7 +26,6 @@
 .twitter { background: transparent url('/img/twitter_icon.png') 5px 10px no-repeat; }
 .delicious { background: transparent url('/img/delicious_icon.png') 5px 10px no-repeat; }
 .github { background: transparent url('/img/github_icon.png') 5px 10px no-repeat; }
-
 .weblinks li { padding-left: 58px !important; }
 .weblinks li span { font-size: 0.75em !important; }
 
@@ -30,3 +36,4 @@
 #skillset ._3 { width: 42px; }
 #skillset ._4 { width: 56px; }
 #skillset ._5 { width: 70px; }
+

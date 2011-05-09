@@ -241,3 +241,9 @@ ul.links a { display: block; }
 .slideshare { background: transparent url('/img/icon_sprites.png') 0 -150px no-repeat }
 .delicious { background: transparent url('/img/icon_sprites.png') 0 0 no-repeat }
 .github { background: transparent url('/img/icon_sprites.png') 0 -200px no-repeat }
+
+/* Links in Druckversion */
+.print .link {
+    font-size: 0.8em;
+}
+
