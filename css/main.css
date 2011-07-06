@@ -1,5 +1,5 @@
 body {
-  font-family:          Georgia, Helvetica, Verdana, serif;
+  font-family:          'Neuton', Georgia, Helvetica, Verdana, serif;
   font-size:            16px;
   color:                #454545;
 }
@@ -160,10 +160,10 @@ h3 {
     z-index:            15;
 }
 #mugshot {
-    -moz-transform:     rotate(-7deg);
-    -webkit-transform:  rotate(-7deg);
-    -o-transform:       rotate(-7deg);
-    transform:          rotate(-7deg);
+    -moz-transform:     rotate(-5deg);
+    -webkit-transform:  rotate(-5deg);
+    -o-transform:       rotate(-5deg);
+    transform:          rotate(-5deg);
     margin:             -45px 20px 0 20px;
     float:              right;
     z-index:            5;
@@ -190,7 +190,7 @@ h3 {
 #skills li {
     display:            inline;
     margin:             5px;
-    line-height:        1.5em;
+    line-height:        1.4em;
 }
 #skills li span {
     white-space:        nowrap;
@@ -220,7 +220,7 @@ a:hover {
     text-align:         justify;
 }
 p {
-    line-height:        22px;
+    line-height:        26px;
     margin-bottom:      1em;
 }
 strong {
