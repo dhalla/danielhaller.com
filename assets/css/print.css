@@ -1,0 +1,21 @@
+/* Print-Stylesheet */
+
+#background,
+#ie,
+#navigation,
+#togglePage,
+#personalArrow {
+    display: none;
+}
+
+#content, .nojs #content {
+    background:         none;
+    margin:             0;
+    padding:            0;
+    width:              auto;
+    border:             none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow:    none;
+    box-shadow:         none;
+    background-image:   none;
+}
