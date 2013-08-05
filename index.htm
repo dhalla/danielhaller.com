@@ -1,128 +1,88 @@
 <?php if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start("ob_gzhandler"); else ob_start(); ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="de">
 
 <head>
 
     <title>Daniel Haller</title>
+
+    <meta charset="utf-8">
     <link rel="shortcut icon" href="/favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/assets/css/dha.min.css" rel="stylesheet" media="screen">
 
 </head>
 
 <body class="nojs">
 
-    <img id="background" alt="" src="/img/bg/bg.jpg" class="fullBg" />
+    <noscript><p><strong>Hinweis:</strong> Sie haben Javascript deaktiviert und sehen daher nur eine eingeschränkte Version dieser Seite.<br />Versuchen Sie es mal mit aktiviertem JS, dann sieht die Welt gleich viel bunter aus.</p></noscript>
 
-    <noscript><p><strong>Hinweis:</strong> Sie haben Javascript deaktiviert und sehen daher nur eine eingeschränkte Version dieser Seite. <br />Versuchen Sie es mal mit aktiviertem JS, dann sieht die Welt gleich viel bunter aus.</p></noscript>
+    <!-- Wrap all page content here -->
+    <div id="wrap">
 
-    <div id="ie"><p><strong>Hinweis:</strong> Das beste Surf-Erlebnis haben Sie mit einem modernen Browser, den Sie sich <a href="http://browser-update.org/update.html" target="_blank">hier bequem und kostenfrei herunterladen</a> können. <br />Der Browser, den Sie gerade verwenden, ist veraltet, hat Sicherheitsprobleme und bietet nur begrenzten Komfort.</p></div>
-
-    <div id="whitestripe">
-        <div id="content">
-
-            <p id="togglePage"><a href="/pages/imprint.htm">Rechtliches/Impressum</a> | <a href="<?php echo $_SERVER['PHP_SELF'];?>?print=1" target="_blank">Druckversion</a></p>
-
-            <!-- Gibts schickere Fonts als Georgia? -->
-            <h1>Daniel Haller</h1>
-            <!-- <h2>Don't panic. I'm from <span class="strikethrough">Frankfurt</span> the Internet.</h2> -->
-            <img src="/img/pfeil.png" alt="" id="personalArrow" />
-
-            <!-- Slider Navigation w/Ballontips -->
-            <div id="navigation">
-            </div>
-
-            <!-- Content Slider -->
-            <ul id="slider">
-
-                <!-- Sliderseite: Skillset -->
-                <li id="skillset" title="Skillset">
-                    <h3>Skillset</h3>
-                    <ul id="skills">
-                        <li class="_3">Anforderungsanalysen</li>
-                        <li class="_4"><span>Best Practice</span></li>
-                        <li class="_5">CSS</li>
-                        <li class="_4"><span>Beratung/Consulting</span></li>
-                        <li class="_3"><span>Doctrine ORM</span></li>
-                        <li class="_2">Drupal</li>
-                        <li class="_3">git</li>
-                        <li class="_1"><span>Facebook API</span></li>
-                        <li class="_5">HTML/XML</li>
-                        <li class="_2">HTML5</li>
-                        <li class="_5">Humor</li>
-                        <li class="_2">IA</li>
-                        <li class="_4">iWebKit</li>
-                        <li class="_3">Javascript</li>
-                        <li class="_3">jQTouch</li>
-                        <li class="_3">jQuery</li>
-                        <li class="_2">jQuery mobile</li>
-                        <li class="_5">Kanban</li>
-                        <li class="_4">LESS</li>
-                        <li class="_2">Linux</li>
-                        <li class="_3">MacOS</li>
-                        <li class="_4"><span>Mobile Strategien</span></li>
-                        <li class="_4">MySQL</li>
-                        <li class="_3">netbiscuits</li>
-                        <li class="_5">PHP</li>
-                        <li class="_5">Präsentationen</li>
-                        <li class="_4">Projektplanung</li>
-                        <li class="_5">REST/SOAP-APIs</li>
-                        <li class="_4">Publizieren</li>
-                        <li class="_3">QA</li>
-                        <li class="_3">Scrum</li>
-                        <li class="_3">Smarty</li>
-                        <li class="_2">SVN</li>
-                        <li class="_4"><span>symfony MVC Framework (1.x)</span></li>
-                        <li class="_4">Teamleitung</li>
-                        <li class="_4">Teamwork</li>
-                        <li class="_5"><span>Techn. Konzeption</span></li>
-                        <li class="_2">Twig</li>
-                        <li class="_2">Typo3</li>
-                        <li class="_1"><span>Typolight/Contao</span></li>
-                        <li class="_2">UX</li>
-                        <li class="_4">Wordpress</li>
-                        <li class="_3"><span>YAML (CSS)</span></li>
-                    </ul>
-                </li>
-
-                <!-- Sliderseite: Über mich / Bild -->
-                <li id="about" title="Über mich">
-                    <h3>Über mich</h3>
-                    <img src="/img/dha.jpg" alt="Daniel Haller" id="mugshot" />
-                    <p>Ich bin 32 Jahre alt, diplomierter Media System Designer, Fachinformatiker für Systemintegration und hochgradig technikbegeistert. Seit etwa 2001 äußert sich diese Begeisterung vornehmlich in meiner Leidenschaft für digitale Medien mit all ihren Facetten: Web-Entwicklung im Back- und Frontend, User Experience, Gestaltung und Design, Social Media, Netzpolitik, Mobile Media, usw.</p>
-                    <p>Derzeit lebe ich diese Leidenschaft in einer Internet-Agentur in Frankfurt, wo ich als Entwickler und technischer Manager seit fast 4 Jahren für einige große und bekannte Marken im digitalen Nirvana plane, denke, berate und programmiere.</p>
-                </li>
-
-                <!-- Sliderseite: Weitere Links / Kontakt -->
-                <li id="contact" title="Mehr &amp; Kontakt">
-                    <ul class="multiCol _2col">
-                        <li class="col _50">
-                            <h3>Mehr von mir im Netz</h3>
-                            <ul class="links">
-                                <li class="xing"><a href="http://www.xing.com/profile/Daniel_Haller4" target="_blank">XING</a>Networking &amp; Eigenwerbung.</li>
-                                <li class="delicious"><a href="http://www.delicious.com/dhalla" target="_blank">Delicious</a>Ich lese.</li>
-                                <li class="slideshare"><a href="http://www.slideshare.net/dhalla" target="_blank">Slideshare</a>Ich schreibe und präsentiere.</li>
-                                <li class="twitter"><a href="http://twitter.com/dhalla" target="_blank">Twitter</a>Ich kommuniziere.</li>
-                                <li class="github"><a href="http://github.com/dhalla" target="_blank">github</a>Ich arbeite und programmiere.</li>
-                            </ul>
-                        </li>
-                        <li class="col _50">
-                            <h3>Kontakt/Portfolio</h3>
-                            <p>
-                                Ich bin per <strong>Telefon</strong> (0163 5677633) oder noch besser per <strong>Mail</strong> (daniel_haller at gmx dot de) erreichbar.<br /><br />
-                                Alternativ freue ich mich auch über <strong>Nachrichten</strong> via <a href="http://www.xing.com/profile/Daniel_Haller4" target="_blank">XING</a> oder <a href="http://twitter.com/dhalla" target="_blank">Twitter</a>.<br /><br />
-                                Mein <strong>Portfolio</strong> stelle ich auf persönliche Nachfrage gern zur Verfügung.
-                            </p>
-                        </li>
-                    </ul>
-                </li>
-
-            </ul>
+      <!-- Begin page content -->
+      <div class="container">
+        <div class="page-header">
+          <h1>Sticky footer</h1>
         </div>
+        <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
+        <p>
+            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Vestibulum id ligula porta felis euismod semper. Donec sed odio dui.
+        </p>
+        <p>
+            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Vestibulum id ligula porta felis euismod semper. Donec sed odio dui.
+        </p>
+        <p>
+            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Vestibulum id ligula porta felis euismod semper. Donec sed odio dui.
+        </p>
+        <p>
+            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Vestibulum id ligula porta felis euismod semper. Donec sed odio dui.
+        </p>
+      </div>
+
     </div>
 
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/scripts/footer.inc.php'); ?>
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted credit">Example courtesy <a href="http://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22659114-1']);
+        _gaq.push(['_setDomainName', 'danielhaller.com']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    <!-- Browser-Update.org Notification, Test with danielhaller.localhost/#test-bu -->
+    <script type="text/javascript">
+        var $buoop = {}
+        $buoop.ol = window.onload;
+        window.onload=function(){
+            try {if ($buoop.ol) $buoop.ol();}catch (e) {}
+            var e = document.createElement("script");
+            e.setAttribute("type", "text/javascript");
+            e.setAttribute("src", "http://browser-update.org/update.js");
+            document.body.appendChild(e);
+        }
+    </script>
 
 </body>
 </html>

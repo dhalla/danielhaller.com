@@ -13,4 +13,8 @@ nbproject
 /logs
 /logs/*
 
+# Compiled CSS
+/assets/css/*
+/assets/css
+
 /protected/*

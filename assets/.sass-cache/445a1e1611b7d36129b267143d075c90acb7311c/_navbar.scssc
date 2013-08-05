@@ -1,0 +1,783 @@
+3.2.5 (Media Mark)
+c14cc41eea2c85398d809b0af29b233a42ed8a62
+o:Sass::Tree::RootNode
+:@has_childrenT:
+@linei:@template"è//
+// Navbars
+// --------------------------------------------------
+
+// Wrapper and base class
+.navbar {
+  position: relative;
+  min-height: $navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
+  margin-bottom: 20px;
+  padding-left: $navbar-padding-horizontal;
+  padding-right: $navbar-padding-horizontal;
+  background-color: $navbar-bg;
+  border-radius: $border-radius-base;
+
+  // Prevent floats from breaking the navbar
+  @include clearfix();
+}
+
+// Navbar nav links
+// -------------------------
+
+.navbar-nav {
+  // Space out from .navbar .brand and .btn-navbar when stacked in mobile views
+  margin-top: 10px;
+  margin-bottom: 15px;
+
+  > li > a {
+    padding-top: (($navbar-height - $line-height-computed) / 2);
+    padding-bottom: (($navbar-height - $line-height-computed) / 2);
+    color: $navbar-link-color;
+    line-height: $line-height-computed;
+    border-radius: $border-radius-base;
+    &:hover,
+    &:focus {
+      color: $navbar-link-hover-color;
+      background-color: $navbar-link-hover-bg;
+    }
+  }
+  > .active > a {
+    &,
+    &:hover,
+    &:focus {
+      color: $navbar-link-active-color;
+      background-color: $navbar-link-active-bg;
+    }
+  }
+  > .disabled > a {
+    &,
+    &:hover,
+    &:focus {
+      color: $navbar-link-disabled-color;
+      background-color: $navbar-link-disabled-bg;
+    }
+  }
+
+  // Right aligned contents
+  // Make them full width first so that they align properly on mobile
+  &.pull-right {
+    width: 100%;
+  }
+}
+
+
+
+//
+// Navbar alignment options
+// --------------------------------------------------
+
+// Static navbar
+.navbar-static-top {
+  border-radius: 0;
+}
+
+// Fix the top/bottom navbars when screen real estate supports it
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: $zindex-navbar-fixed;
+  border-radius: 0;
+}
+.navbar-fixed-top {
+  top: 0;
+}
+.navbar-fixed-bottom {
+  bottom: 0;
+  margin-bottom: 0; // override .navbar defaults
+}
+
+
+
+//
+// Navbar optional components
+// --------------------------------------------------
+
+// Brand/project name
+.navbar-brand {
+  display: block;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: $navbar-padding-vertical $navbar-padding-horizontal;
+  font-size: $font-size-large;
+  font-weight: 500;
+  line-height: $line-height-computed;
+  color: $navbar-brand-color;
+  text-align: center;
+  &:hover,
+  &:focus {
+    color: $navbar-brand-hover-color;
+    text-decoration: none;
+    background-color: $navbar-brand-hover-bg;
+  }
+}
+
+// Collapsible navbar toggle
+.navbar-toggle {
+  position: absolute;
+  top: floor(($navbar-height - 32) / 2);
+  right: 10px;
+  width: 48px;
+  height: 32px;
+  padding: 8px 12px;
+  background-color: transparent;
+  border: 1px solid $navbar-toggle-border-color;
+  border-radius: $border-radius-base;
+
+  &:hover,
+  &:focus {
+    background-color: $navbar-toggle-hover-bg;
+  }
+
+  // Bars
+  .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: $navbar-toggle-icon-bar-bg;
+    border-radius: 1px;
+  }
+  .icon-bar + .icon-bar {
+    margin-top: 4px;
+  }
+}
+
+// Navbar form
+.navbar-form {
+  @extend .form-inline;
+  @include navbar-vertical-align($input-height-base); // Vertically center in navbar
+}
+
+// Dropdown menus
+
+// Menu position and menu carets
+.navbar-nav > li > .dropdown-menu {
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+// Menu position and menu caret support for dropups via extra dropup class
+.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+// Dropdown menu items and carets
+.navbar-nav {
+  // Caret should match text color on hover
+  > .dropdown > a:hover .caret,
+  > .dropdown > a:focus .caret {
+    border-top-color: $navbar-link-hover-color;
+    border-bottom-color: $navbar-link-hover-color;
+  }
+
+  // Remove background color from open dropdown
+  > .open > a {
+    &,
+    &:hover,
+    &:focus {
+      background-color: $navbar-link-active-bg;
+      color: $navbar-link-active-color;
+      .caret {
+        border-top-color: $navbar-link-active-color;
+        border-bottom-color: $navbar-link-active-color;
+      }
+    }
+  }
+  > .dropdown > a .caret {
+    border-top-color: $navbar-link-color;
+    border-bottom-color: $navbar-link-color;
+  }
+}
+
+// Right aligned menus need alt position
+.navbar-nav.pull-right > li > .dropdown-menu,
+.navbar-nav > li > .dropdown-menu.pull-right {
+  left: auto;
+  right: 0;
+}
+
+
+
+// Inverse navbar
+// --------------------------------------------------
+
+.navbar-inverse {
+  background-color: $navbar-inverse-bg;
+
+  .navbar-brand {
+    color: $navbar-inverse-brand-color;
+    &:hover,
+    &:focus {
+      color: $navbar-inverse-brand-hover-color;
+      background-color: $navbar-inverse-brand-hover-bg;
+    }
+  }
+
+  .navbar-text {
+    color: $navbar-inverse-color;
+  }
+
+  .navbar-nav {
+    > li > a {
+      color: $navbar-inverse-link-color;
+
+      &:hover,
+      &:focus {
+        color: $navbar-inverse-link-hover-color;
+        background-color: $navbar-inverse-link-hover-bg;
+      }
+    }
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navbar-inverse-link-active-color;
+        background-color: $navbar-inverse-link-active-bg;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navbar-inverse-link-disabled-color;
+        background-color: $navbar-inverse-link-disabled-bg;
+      }
+    }
+  }
+
+  // Darken the responsive nav toggle
+  .navbar-toggle {
+    border-color: $navbar-inverse-toggle-border-color;
+    &:hover,
+    &:focus {
+      background-color: $navbar-inverse-toggle-hover-bg;
+    }
+    .icon-bar {
+      background-color: $navbar-inverse-toggle-icon-bar-bg;
+    }
+  }
+
+  // Dropdowns
+  .navbar-nav {
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: $navbar-inverse-link-active-bg;
+        color: $navbar-inverse-link-active-color;
+      }
+    }
+    > .dropdown > a:hover .caret {
+      border-top-color: $navbar-inverse-link-hover-color;
+      border-bottom-color: $navbar-inverse-link-hover-color;
+    }
+    > .dropdown > a .caret {
+      border-top-color: $navbar-inverse-link-color;
+      border-bottom-color: $navbar-inverse-link-color;
+    }
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        .caret {
+          border-top-color: $navbar-inverse-link-active-color;
+          border-bottom-color: $navbar-inverse-link-active-color;
+        }
+      }
+    }
+  }
+}
+
+
+
+// Responsive navbar
+// --------------------------------------------------
+
+@media screen and (min-width: $grid-float-breakpoint) {
+
+  .navbar-brand {
+    float: left;
+    margin-left: -($navbar-padding-horizontal);
+    margin-right: 5px;
+  }
+  .navbar-nav {
+    float: left;
+    // undo margin to make nav extend full height of navbar
+    margin-top: 0;
+    margin-bottom: 0;
+
+    > li {
+      float: left;
+      > a {
+        border-radius: 0;
+      }
+    }
+
+    &.pull-right {
+      float: right;
+      width: auto;
+    }
+  }
+
+  // Required to make the collapsing navbar work on regular desktops
+  .navbar-toggle {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: none;
+  }
+  .nav-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+}
+
+
+
+// Buttons in navbars
+//
+// Vertically center a button within a navbar (when *not* in a form).
+
+.navbar-btn {
+  margin-top: (($navbar-height - $input-height-base) / 2);
+}
+
+
+
+// Text in navbars
+//
+// Add a class to make any element properly align itself vertically within the navbars.
+
+.navbar-text {
+  float: left;
+  padding: 0 $navbar-padding-horizontal;
+  @include navbar-vertical-align($line-height-computed);
+}
+
+
+
+// Links in navbars
+//
+// Add a class to ensure links outside the navbar nav are colored correctly.
+
+// Default navbar variables
+.navbar-link {
+  color: $navbar-link-color;
+  &:hover {
+    color: $navbar-link-hover-color;
+  }
+}
+
+// Use the inverse navbar variables
+.navbar-inverse .navbar-link {
+  color: $navbar-inverse-link-color;
+  &:hover {
+    color: $navbar-inverse-link-hover-color;
+  }
+}
+:@children[.o:Sass::Tree::CommentNode
+:
+@type:silent:@value["K/*
+ * Navbars
+ * -------------------------------------------------- */;i;	[ :@options{ o;
+
+;;;["!/* Wrapper and base class */;i
+;	[ ;@o:Sass::Tree::RuleNode:
+@rule[".navbar:@parsed_ruleso:"Sass::Selector::CommaSequence:@members[o:Sass::Selector::Sequence;[o:#Sass::Selector::SimpleSequence
+;[o:Sass::Selector::Class:
+@name["navbar:@filename" ;i;@:@sourceso:Set:
+@hash{ ;i:@subject0;@;i;T;i:
+@tabsi ;	[o:Sass::Tree::PropNode;["position;o:Sass::Script::String;:identifier;"relative;@;i:@prop_syntax:new;i ;	[ ;@o;;["min-height;o:Sass::Script::Variable	;"navbar-height:@underscored_name"navbar_height;i;@;i;!;";i ;	[ ;@o;
+
+;;;["Y/* Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode) */;i;	[ ;@o;;["margin-bottom;o;;; ;"	20px;@;i;!;";i ;	[ ;@o;;["padding-left;o;#	;"navbar-padding-horizontal;$"navbar_padding_horizontal;i;@;i;!;";i ;	[ ;@o;;["padding-right;o;#	;"navbar-padding-horizontal;$"navbar_padding_horizontal;i;@;i;!;";i ;	[ ;@o;;["background-color;o;#	;"navbar-bg;$"navbar_bg;i;@;i;!;";i ;	[ ;@o;;["border-radius;o;#	;"border-radius-base;$"border_radius_base;i;@;i;!;";i ;	[ ;@o;
+
+;;;["2/* Prevent floats from breaking the navbar */;i;	[ ;@o:Sass::Tree::MixinNode:@keywords{ ;"clearfix;i:@splat0;	[ ;@:
+@args[ ;@o;
+
+;;;["8/* Navbar nav links
+ * ------------------------- */;i;	[ ;@o;;[".navbar-nav;o;;[o;;[o;
+;[o;;["navbar-nav;" ;i;@m;o;;{ ;i;0;@m;i;T;i;i ;	[o;
+
+;;;["U/* Space out from .navbar .brand and .btn-navbar when stacked in mobile views */;i;	[ ;@o;;["margin-top;o;;; ;"	10px;@;i;!;";i ;	[ ;@o;;["margin-bottom;o;;; ;"	15px;@;i;!;";i ;	[ ;@o;;["> li > a;o;;[o;;[	">o;
+;[o:Sass::Selector::Element	:@namespace0;["li;" ;i ;@‰;o;;{ ;i ;0">o;
+;[o;)	;*0;["a;@‰;i ;@‰;o;;{ ;i ;0;@‰;i ;T;i ;i ;	[o;;["padding-top;o:Sass::Script::Operation
+:@operator:div:@operand2o:Sass::Script::Number
+:@numerator_units[ ;i;i!;@:@denominator_units[ ;i!:@operand1o;+
+;,:
+minus;.o;#	;"line-height-computed;$"line_height_computed;i!;@;i!;2o;#	;"navbar-height;$"navbar_height;i!;@;@;@;i!;!;";i ;	[ ;@o;;["padding-bottom;o;+
+;,;-;.o;/
+;0[ ;i;i";@;1@›;i";2o;+
+;,;3;.o;#	;"line-height-computed;$"line_height_computed;i";@;i";2o;#	;"navbar-height;$"navbar_height;i";@;@;@;i";!;";i ;	[ ;@o;;["
+color;o;#	;"navbar-link-color;$"navbar_link_color;i#;@;i#;!;";i ;	[ ;@o;;["line-height;o;#	;"line-height-computed;$"line_height_computed;i$;@;i$;!;";i ;	[ ;@o;;["border-radius;o;#	;"border-radius-base;$"border_radius_base;i%;@;i%;!;";i ;	[ ;@o;;["&:hover,
+    &:focus;o;;[o;;[o;
+;[o:Sass::Selector::Parent;" ;i'o:Sass::Selector::Pseudo
+:	@arg0;["
+hover;:
+class;@Ñ;i';@Ñ;o;;{ ;i';0o;;["
+o;
+;[o;4;@Ñ;i'o;5
+;60;["
+focus;;7;@Ñ;i';@Ñ;o;;{ ;i';0;@Ñ;i';T;i';i ;	[o;;["
+color;o;#	;"navbar-link-hover-color;$"navbar_link_hover_color;i(;@;i(;!;";i ;	[ ;@o;;["background-color;o;#	;"navbar-link-hover-bg;$"navbar_link_hover_bg;i);@;i);!;";i ;	[ ;@;@;@o;;["> .active > a;o;;[o;;[	">o;
+;[o;;["active;" ;i,;@þ;o;;{ ;i,;0">o;
+;[o;)	;*0;["a;@þ;i,;@þ;o;;{ ;i,;0;@þ;i,;T;i,;i ;	[o;;[" &,
+    &:hover,
+    &:focus;o;;[o;;[o;
+;[o;4;" ;i/;@;o;;{ ;i/;0o;;["
+o;
+;[o;4;@;i/o;5
+;60;["
+hover;;7;@;i/;@;o;;{ ;i/;0o;;["
+o;
+;[o;4;@;i/o;5
+;60;["
+focus;;7;@;i/;@;o;;{ ;i/;0;@;i/;T;i/;i ;	[o;;["
+color;o;#	;"navbar-link-active-color;$"navbar_link_active_color;i0;@;i0;!;";i ;	[ ;@o;;["background-color;o;#	;"navbar-link-active-bg;$"navbar_link_active_bg;i1;@;i1;!;";i ;	[ ;@;@;@o;;["> .disabled > a;o;;[o;;[	">o;
+;[o;;["disabled;" ;i4;@I;o;;{ ;i4;0">o;
+;[o;)	;*0;["a;@I;i4;@I;o;;{ ;i4;0;@I;i4;T;i4;i ;	[o;;[" &,
+    &:hover,
+    &:focus;o;;[o;;[o;
+;[o;4;" ;i7;@_;o;;{ ;i7;0o;;["
+o;
+;[o;4;@_;i7o;5
+;60;["
+hover;;7;@_;i7;@_;o;;{ ;i7;0o;;["
+o;
+;[o;4;@_;i7o;5
+;60;["
+focus;;7;@_;i7;@_;o;;{ ;i7;0;@_;i7;T;i7;i ;	[o;;["
+color;o;#	;"navbar-link-disabled-color;$"navbar_link_disabled_color;i8;@;i8;!;";i ;	[ ;@o;;["background-color;o;#	;"navbar-link-disabled-bg;$"navbar_link_disabled_bg;i9;@;i9;!;";i ;	[ ;@;@;@o;
+
+;;;["e/* Right aligned contents
+ * Make them full width first so that they align properly on mobile */;i=;	[ ;@o;;["&.pull-right;o;;[o;;[o;
+;[o;4;" ;i?o;;["pull-right;@•;i?;@•;o;;{ ;i?;0;@•;i?;T;i?;i ;	[o;;["
+width;o;;; ;"	100%;@;i@;!;";i ;	[ ;@;@;@o;
+
+;;;["\/*
+ * Navbar alignment options
+ * -------------------------------------------------- */;iF;	[ ;@o;
+
+;;;["/* Static navbar */;iJ;	[ ;@o;;[".navbar-static-top;o;;[o;;[o;
+;[o;;["navbar-static-top;" ;iK;@¶;o;;{ ;iK;0;@¶;iK;T;iK;i ;	[o;;["border-radius;o;;; ;"0;@;iL;!;";i ;	[ ;@;@o;
+
+;;;["I/* Fix the top/bottom navbars when screen real estate supports it */;iO;	[ ;@o;;[",.navbar-fixed-top,
+.navbar-fixed-bottom;o;;[o;;[o;
+;[o;;["navbar-fixed-top;" ;iQ;@Ð;o;;{ ;iQ;0o;;["
+o;
+;[o;;["navbar-fixed-bottom;@Ð;iQ;@Ð;o;;{ ;iQ;0;@Ð;iQ;T;iQ;i ;	[
+o;;["position;o;;; ;"
+fixed;@;iR;!;";i ;	[ ;@o;;["
+right;o;;; ;"0;@;iS;!;";i ;	[ ;@o;;["	left;o;;; ;"0;@;iT;!;";i ;	[ ;@o;;["z-index;o;#	;"zindex-navbar-fixed;$"zindex_navbar_fixed;iU;@;iU;!;";i ;	[ ;@o;;["border-radius;o;;; ;"0;@;iV;!;";i ;	[ ;@;@o;;[".navbar-fixed-top;o;;[o;;[o;
+;[o;;["navbar-fixed-top;" ;iX;@	;o;;{ ;iX;0;@	;iX;T;iX;i ;	[o;;["top;o;;; ;"0;@;iY;!;";i ;	[ ;@;@o;;[".navbar-fixed-bottom;o;;[o;;[o;
+;[o;;["navbar-fixed-bottom;" ;i[;@;o;;{ ;i[;0;@;i[;T;i[;i ;	[o;;["bottom;o;;; ;"0;@;i\;!;";i ;	[ ;@o;;["margin-bottom;o;;; ;"0;@;i];!;";i ;	[ ;@o;
+
+;;;["$/* override .navbar defaults */;i];	[ ;@;@o;
+
+;;;["^/*
+ * Navbar optional components
+ * -------------------------------------------------- */;ib;	[ ;@o;
+
+;;;["/* Brand/project name */;if;	[ ;@o;;[".navbar-brand;o;;[o;;[o;
+;[o;;["navbar-brand;" ;ig;@G;o;;{ ;ig;0;@G;ig;T;ig;i ;	[o;;["display;o;;; ;"
+block;@;ih;!;";i ;	[ ;@o;;["max-width;o;;; ;"
+200px;@;ii;!;";i ;	[ ;@o;;["margin-left;o;;; ;"	auto;@;ij;!;";i ;	[ ;@o;;["margin-right;o;;; ;"	auto;@;ik;!;";i ;	[ ;@o;;["padding;o:Sass::Script::List	;[o;#	;"navbar-padding-vertical;$"navbar_padding_vertical;il;@o;#	;"navbar-padding-horizontal;$"navbar_padding_horizontal;il;@;il:@separator:
+space;@;il;!;";i ;	[ ;@o;;["font-size;o;#	;"font-size-large;$"font_size_large;im;@;im;!;";i ;	[ ;@o;;["font-weight;o;;; ;"500;@;in;!;";i ;	[ ;@o;;["line-height;o;#	;"line-height-computed;$"line_height_computed;io;@;io;!;";i ;	[ ;@o;;["
+color;o;#	;"navbar-brand-color;$"navbar_brand_color;ip;@;ip;!;";i ;	[ ;@o;;["text-align;o;;; ;"center;@;iq;!;";i ;	[ ;@o;;["&:hover,
+  &:focus;o;;[o;;[o;
+;[o;4;" ;iso;5
+;60;["
+hover;;7;@š;is;@š;o;;{ ;is;0o;;["
+o;
+;[o;4;@š;iso;5
+;60;["
+focus;;7;@š;is;@š;o;;{ ;is;0;@š;is;T;is;i ;	[o;;["
+color;o;#	;"navbar-brand-hover-color;$"navbar_brand_hover_color;it;@;it;!;";i ;	[ ;@o;;["text-decoration;o;;; ;"	none;@;iu;!;";i ;	[ ;@o;;["background-color;o;#	;"navbar-brand-hover-bg;$"navbar_brand_hover_bg;iv;@;iv;!;";i ;	[ ;@;@;@o;
+
+;;;["$/* Collapsible navbar toggle */;iz;	[ ;@o;;[".navbar-toggle;o;;[o;;[o;
+;[o;;["navbar-toggle;" ;i{;@Ð;o;;{ ;i{;0;@Ð;i{;T;i{;i ;	[o;;["position;o;;; ;"absolute;@;i|;!;";i ;	[ ;@o;;["top;o:Sass::Script::Funcall;&{ ;"
+floor;i};'0;@;([o;+
+;,;-;.o;/;0[ ;i:@original"2;i};@;1@›;i};2o;+
+;,;3;.o;/;0[ ;i%;<"32;i};@;1@›;i};2o;#	;"navbar-height;$"navbar_height;i};@;@;@;i};!;";i ;	[ ;@o;;["
+right;o;;; ;"	10px;@;i~;!;";i ;	[ ;@o;;["
+width;o;;; ;"	48px;@;i;!;";i ;	[ ;@o;;["height;o;;; ;"	32px;@;i{;!;";i ;	[ ;@o;;["padding;o;8	;[o;/;0["px;i;<"8px;i|;@;1[ o;/;0["px;i;<"	12px;i|;@;1[ ;i|;9;:;@;i|;!;";i ;	[ ;@o;;["background-color;o;;; ;"transparent;@;i};!;";i ;	[ ;@o;;["border;o;8	;[o;/;0["px;i;<"1px;i~;@;1[ o;	;; ;"
+solid;i~;@o;#	;"navbar-toggle-border-color;$"navbar_toggle_border_color;i~;@;i~;9;:;@;i~;!;";i ;	[ ;@o;;["border-radius;o;#	;"border-radius-base;$"border_radius_base;i;@;i;!;";i ;	[ ;@o;;["&:hover,
+  &:focus;o;;[o;;[o;
+;[o;4;" ;i‚o;5
+;60;["
+hover;;7;@6;i‚;@6;o;;{ ;i‚;0o;;["
+o;
+;[o;4;@6;i‚o;5
+;60;["
+focus;;7;@6;i‚;@6;o;;{ ;i‚;0;@6;i‚;T;i‚;i ;	[o;;["background-color;o;#	;"navbar-toggle-hover-bg;$"navbar_toggle_hover_bg;iƒ;@;iƒ;!;";i ;	[ ;@;@o;
+
+;;;["/* Bars */;i†;	[ ;@o;;[".icon-bar;o;;[o;;[o;
+;[o;;["icon-bar;" ;i‡;@_;o;;{ ;i‡;0;@_;i‡;T;i‡;i ;	[
+o;;["display;o;;; ;"
+block;@;iˆ;!;";i ;	[ ;@o;;["
+width;o;;; ;"	22px;@;i‰;!;";i ;	[ ;@o;;["height;o;;; ;"2px;@;iŠ;!;";i ;	[ ;@o;;["background-color;o;#	;"navbar-toggle-icon-bar-bg;$"navbar_toggle_icon_bar_bg;i‹;@;i‹;!;";i ;	[ ;@o;;["border-radius;o;;; ;"1px;@;iŒ;!;";i ;	[ ;@;@o;;[".icon-bar + .icon-bar;o;;[o;;[o;
+;[o;;["icon-bar;" ;iŽ;@Ž;o;;{ ;iŽ;0"+o;
+;[o;;["icon-bar;@Ž;iŽ;@Ž;o;;{ ;iŽ;0;@Ž;iŽ;T;iŽ;i ;	[o;;["margin-top;o;;; ;"4px;@;i;!;";i ;	[ ;@;@;@o;
+
+;;;["/* Navbar form */;i“;	[ ;@o;;[".navbar-form;o;;[o;;[o;
+;[o;;["navbar-form;" ;i”;@°;o;;{ ;i”;0;@°;i”;T;i”;i ;	[o:Sass::Tree::ExtendNode
+:@selector["."form-inline:@optionalF;i•;	[ ;@o;%;&{ ;"navbar-vertical-align;i–;'0;	[ ;@;([o;#	;"input-height-base;$"input_height_base;i–;@o;
+
+;;;["&/* Vertically center in navbar */;i–;	[ ;@;@o;
+
+;;;["/* Dropdown menus */;i™;	[ ;@o;
+
+;;;["(/* Menu position and menu carets */;i›;	[ ;@o;;["&.navbar-nav > li > .dropdown-menu;o;;[o;;[
+o;
+;[o;;["navbar-nav;" ;iœ;@Ù;o;;{ ;iœ;0">o;
+;[o;)	;*0;["li;@Ù;iœ;@Ù;o;;{ ;iœ;0">o;
+;[o;;["dropdown-menu;@Ù;iœ;@Ù;o;;{ ;iœ;0;@Ù;iœ;T;iœ;i ;	[o;;["margin-top;o;;; ;"0;@;i;!;";i ;	[ ;@o;;["border-top-left-radius;o;;; ;"0;@;iž;!;";i ;	[ ;@o;;["border-top-right-radius;o;;; ;"0;@;iŸ;!;";i ;	[ ;@;@o;
+
+;;;["R/* Menu position and menu caret support for dropups via extra dropup class */;i¡;	[ ;@o;;[";.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu;o;;[o;;[o;
+;[o;;["navbar-fixed-bottom;" ;i¢;@;o;;{ ;i¢;0o;
+;[o;;["navbar-nav;@;i¢;@;o;;{ ;i¢;0">o;
+;[o;)	;*0;["li;@;i¢;@;o;;{ ;i¢;0">o;
+;[o;;["dropdown-menu;@;i¢;@;o;;{ ;i¢;0;@;i¢;T;i¢;i ;	[o;;["border-bottom-left-radius;o;;; ;"0;@;i£;!;";i ;	[ ;@o;;["border-bottom-right-radius;o;;; ;"0;@;i¤;!;";i ;	[ ;@;@o;
+
+;;;[")/* Dropdown menu items and carets */;i§;	[ ;@o;;[".navbar-nav;o;;[o;;[o;
+;[o;;["navbar-nav;" ;i¨;@F;o;;{ ;i¨;0;@F;i¨;T;i¨;i ;	[
+o;
+
+;;;["1/* Caret should match text color on hover */;i©;	[ ;@o;;["A> .dropdown > a:hover .caret,
+  > .dropdown > a:focus .caret;o;;[o;;[
+">o;
+;[o;;["dropdown;" ;i«;@[;o;;{ ;i«;0">o;
+;[o;)	;*0;["a;@[;i«o;5
+;60;["
+hover;;7;@[;i«;@[;o;;{ ;i«;0o;
+;[o;;["
+caret;@[;i«;@[;o;;{ ;i«;0o;;["
+">o;
+;[o;;["dropdown;@[;i«;@[;o;;{ ;i«;0">o;
+;[o;)	;*0;["a;@[;i«o;5
+;60;["
+focus;;7;@[;i«;@[;o;;{ ;i«;0o;
+;[o;;["
+caret;@[;i«;@[;o;;{ ;i«;0;@[;i«;T;i«;i ;	[o;;["border-top-color;o;#	;"navbar-link-hover-color;$"navbar_link_hover_color;i¬;@;i¬;!;";i ;	[ ;@o;;["border-bottom-color;o;#	;"navbar-link-hover-color;$"navbar_link_hover_color;i­;@;i­;!;";i ;	[ ;@;@o;
+
+;;;["5/* Remove background color from open dropdown */;i°;	[ ;@o;;["> .open > a;o;;[o;;[	">o;
+;[o;;["	open;" ;i±;@­;o;;{ ;i±;0">o;
+;[o;)	;*0;["a;@­;i±;@­;o;;{ ;i±;0;@­;i±;T;i±;i ;	[o;;[" &,
+    &:hover,
+    &:focus;o;;[o;;[o;
+;[o;4;" ;i´;@Ã;o;;{ ;i´;0o;;["
+o;
+;[o;4;@Ã;i´o;5
+;60;["
+hover;;7;@Ã;i´;@Ã;o;;{ ;i´;0o;;["
+o;
+;[o;4;@Ã;i´o;5
+;60;["
+focus;;7;@Ã;i´;@Ã;o;;{ ;i´;0;@Ã;i´;T;i´;i ;	[o;;["background-color;o;#	;"navbar-link-active-bg;$"navbar_link_active_bg;iµ;@;iµ;!;";i ;	[ ;@o;;["
+color;o;#	;"navbar-link-active-color;$"navbar_link_active_color;i¶;@;i¶;!;";i ;	[ ;@o;;[".caret;o;;[o;;[o;
+;[o;;["
+caret;" ;i·;@÷;o;;{ ;i·;0;@÷;i·;T;i·;i ;	[o;;["border-top-color;o;#	;"navbar-link-active-color;$"navbar_link_active_color;i¸;@;i¸;!;";i ;	[ ;@o;;["border-bottom-color;o;#	;"navbar-link-active-color;$"navbar_link_active_color;i¹;@;i¹;!;";i ;	[ ;@;@;@;@o;;["> .dropdown > a .caret;o;;[o;;[
+">o;
+;[o;;["dropdown;" ;i½;@;o;;{ ;i½;0">o;
+;[o;)	;*0;["a;@;i½;@;o;;{ ;i½;0o;
+;[o;;["
+caret;@;i½;@;o;;{ ;i½;0;@;i½;T;i½;i ;	[o;;["border-top-color;o;#	;"navbar-link-color;$"navbar_link_color;i¾;@;i¾;!;";i ;	[ ;@o;;["border-bottom-color;o;#	;"navbar-link-color;$"navbar_link_color;i¿;@;i¿;!;";i ;	[ ;@;@;@o;
+
+;;;["0/* Right aligned menus need alt position */;iÃ;	[ ;@o;;["_.navbar-nav.pull-right > li > .dropdown-menu,
+.navbar-nav > li > .dropdown-menu.pull-right;o;;[o;;[
+o;
+;[o;;["navbar-nav;" ;iÅo;;["pull-right;@G;iÅ;@G;o;;{ ;iÅ;0">o;
+;[o;)	;*0;["li;@G;iÅ;@G;o;;{ ;iÅ;0">o;
+;[o;;["dropdown-menu;@G;iÅ;@G;o;;{ ;iÅ;0o;;["
+o;
+;[o;;["navbar-nav;@G;iÅ;@G;o;;{ ;iÅ;0">o;
+;[o;)	;*0;["li;@G;iÅ;@G;o;;{ ;iÅ;0">o;
+;[o;;["dropdown-menu;@G;iÅo;;["pull-right;@G;iÅ;@G;o;;{ ;iÅ;0;@G;iÅ;T;iÅ;i ;	[o;;["	left;o;;; ;"	auto;@;iÆ;!;";i ;	[ ;@o;;["
+right;o;;; ;"0;@;iÇ;!;";i ;	[ ;@;@o;
+
+;;;["O/* Inverse navbar
+ * -------------------------------------------------- */;iÌ;	[ ;@o;;[".navbar-inverse;o;;[o;;[o;
+;[o;;["navbar-inverse;" ;iÏ;@—;o;;{ ;iÏ;0;@—;iÏ;T;iÏ;i ;	[o;;["background-color;o;#	;"navbar-inverse-bg;$"navbar_inverse_bg;iÐ;@;iÐ;!;";i ;	[ ;@o;;[".navbar-brand;o;;[o;;[o;
+;[o;;["navbar-brand;" ;iÒ;@®;o;;{ ;iÒ;0;@®;iÒ;T;iÒ;i ;	[o;;["
+color;o;#	;"navbar-inverse-brand-color;$"navbar_inverse_brand_color;iÓ;@;iÓ;!;";i ;	[ ;@o;;["&:hover,
+    &:focus;o;;[o;;[o;
+;[o;4;" ;iÕo;5
+;60;["
+hover;;7;@Ã;iÕ;@Ã;o;;{ ;iÕ;0o;;["
+o;
+;[o;4;@Ã;iÕo;5
+;60;["
+focus;;7;@Ã;iÕ;@Ã;o;;{ ;iÕ;0;@Ã;iÕ;T;iÕ;i ;	[o;;["
+color;o;#	;"%navbar-inverse-brand-hover-color;$"%navbar_inverse_brand_hover_color;iÖ;@;iÖ;!;";i ;	[ ;@o;;["background-color;o;#	;""navbar-inverse-brand-hover-bg;$""navbar_inverse_brand_hover_bg;i×;@;i×;!;";i ;	[ ;@;@;@o;;[".navbar-text;o;;[o;;[o;
+;[o;;["navbar-text;" ;iÛ;@ï;o;;{ ;iÛ;0;@ï;iÛ;T;iÛ;i ;	[o;;["
+color;o;#	;"navbar-inverse-color;$"navbar_inverse_color;iÜ;@;iÜ;!;";i ;	[ ;@;@o;;[".navbar-nav;o;;[o;;[o;
+;[o;;["navbar-nav;" ;iß;@;o;;{ ;iß;0;@;iß;T;iß;i ;	[o;;["> li > a;o;;[o;;[	">o;
+;[o;)	;*0;["li;" ;ià;@;o;;{ ;ià;0">o;
+;[o;)	;*0;["a;@;ià;@;o;;{ ;ià;0;@;ià;T;ià;i ;	[o;;["
+color;o;#	;"navbar-inverse-link-color;$"navbar_inverse_link_color;iá;@;iá;!;";i ;	[ ;@o;;["&:hover,
+      &:focus;o;;[o;;[o;
+;[o;4;" ;iäo;5
+;60;["
+hover;;7;@4;iä;@4;o;;{ ;iä;0o;;["
+o;
+;[o;4;@4;iäo;5
+;60;["
+focus;;7;@4;iä;@4;o;;{ ;iä;0;@4;iä;T;iä;i ;	[o;;["
+color;o;#	;"$navbar-inverse-link-hover-color;$"$navbar_inverse_link_hover_color;iå;@;iå;!;";i ;	[ ;@o;;["background-color;o;#	;"!navbar-inverse-link-hover-bg;$"!navbar_inverse_link_hover_bg;iæ;@;iæ;!;";i ;	[ ;@;@;@o;;["> .active > a;o;;[o;;[	">o;
+;[o;;["active;" ;ié;@a;o;;{ ;ié;0">o;
+;[o;)	;*0;["a;@a;ié;@a;o;;{ ;ié;0;@a;ié;T;ié;i ;	[o;;["$&,
+      &:hover,
+      &:focus;o;;[o;;[o;
+;[o;4;" ;iì;@w;o;;{ ;iì;0o;;["
+o;
+;[o;4;@w;iìo;5
+;60;["
+hover;;7;@w;iì;@w;o;;{ ;iì;0o;;["
+o;
+;[o;4;@w;iìo;5
+;60;["
+focus;;7;@w;iì;@w;o;;{ ;iì;0;@w;iì;T;iì;i ;	[o;;["
+color;o;#	;"%navbar-inverse-link-active-color;$"%navbar_inverse_link_active_color;ií;@;ií;!;";i ;	[ ;@o;;["background-color;o;#	;""navbar-inverse-link-active-bg;$""navbar_inverse_link_active_bg;iî;@;iî;!;";i ;	[ ;@;@;@o;;["> .disabled > a;o;;[o;;[	">o;
+;[o;;["disabled;" ;iñ;@¬;o;;{ ;iñ;0">o;
+;[o;)	;*0;["a;@¬;iñ;@¬;o;;{ ;iñ;0;@¬;iñ;T;iñ;i ;	[o;;["$&,
+      &:hover,
+      &:focus;o;;[o;;[o;
+;[o;4;" ;iô;@Â;o;;{ ;iô;0o;;["
+o;
+;[o;4;@Â;iôo;5
+;60;["
+hover;;7;@Â;iô;@Â;o;;{ ;iô;0o;;["
+o;
+;[o;4;@Â;iôo;5
+;60;["
+focus;;7;@Â;iô;@Â;o;;{ ;iô;0;@Â;iô;T;iô;i ;	[o;;["
+color;o;#	;"'navbar-inverse-link-disabled-color;$"'navbar_inverse_link_disabled_color;iõ;@;iõ;!;";i ;	[ ;@o;;["background-color;o;#	;"$navbar-inverse-link-disabled-bg;$"$navbar_inverse_link_disabled_bg;iö;@;iö;!;";i ;	[ ;@;@;@;@o;
+
+;;;["+/* Darken the responsive nav toggle */;iû;	[ ;@o;;[".navbar-toggle;o;;[o;;[o;
+;[o;;["navbar-toggle;" ;iü;@ú;o;;{ ;iü;0;@ú;iü;T;iü;i ;	[o;;["border-color;o;#	;"'navbar-inverse-toggle-border-color;$"'navbar_inverse_toggle_border_color;iý;@;iý;!;";i ;	[ ;@o;;["&:hover,
+    &:focus;o;;[o;;[o;
+;[o;4;" ;iÿo;5
+;60;["
+hover;;7;@;iÿ;@;o;;{ ;iÿ;0o;;["
+o;
+;[o;4;@;iÿo;5
+;60;["
+focus;;7;@;iÿ;@;o;;{ ;iÿ;0;@;iÿ;T;iÿ;i ;	[o;;["background-color;o;#	;"#navbar-inverse-toggle-hover-bg;$"#navbar_inverse_toggle_hover_bg;i ;@;i ;!;";i ;	[ ;@;@o;;[".icon-bar;o;;[o;;[o;
+;[o;;["icon-bar;" ;i;@4;o;;{ ;i;0;@4;i;T;i;i ;	[o;;["background-color;o;#	;"&navbar-inverse-toggle-icon-bar-bg;$"&navbar_inverse_toggle_icon_bar_bg;i;@;i;!;";i ;	[ ;@;@;@o;
+
+;;;["/* Dropdowns */;i;	[ ;@o;;[".navbar-nav;o;;[o;;[o;
+;[o;;["navbar-nav;" ;i;@O;o;;{ ;i;0;@O;i;T;i;i ;	[	o;;["> .open > a;o;;[o;;[	">o;
+;[o;;["	open;" ;i	;@`;o;;{ ;i	;0">o;
+;[o;)	;*0;["a;@`;i	;@`;o;;{ ;i	;0;@`;i	;T;i	;i ;	[o;;["$&,
+      &:hover,
+      &:focus;o;;[o;;[o;
+;[o;4;" ;i;@v;o;;{ ;i;0o;;["
+o;
+;[o;4;@v;io;5
+;60;["
+hover;;7;@v;i;@v;o;;{ ;i;0o;;["
+o;
+;[o;4;@v;io;5
+;60;["
+focus;;7;@v;i;@v;o;;{ ;i;0;@v;i;T;i;i ;	[o;;["background-color;o;#	;""navbar-inverse-link-active-bg;$""navbar_inverse_link_active_bg;i;@;i;!;";i ;	[ ;@o;;["
+color;o;#	;"%navbar-inverse-link-active-color;$"%navbar_inverse_link_active_color;i;@;i;!;";i ;	[ ;@;@;@o;;["!> .dropdown > a:hover .caret;o;;[o;;[
+">o;
+;[o;;["dropdown;" ;i;@«;o;;{ ;i;0">o;
+;[o;)	;*0;["a;@«;io;5
+;60;["
+hover;;7;@«;i;@«;o;;{ ;i;0o;
+;[o;;["
+caret;@«;i;@«;o;;{ ;i;0;@«;i;T;i;i ;	[o;;["border-top-color;o;#	;"$navbar-inverse-link-hover-color;$"$navbar_inverse_link_hover_color;i;@;i;!;";i ;	[ ;@o;;["border-bottom-color;o;#	;"$navbar-inverse-link-hover-color;$"$navbar_inverse_link_hover_color;i;@;i;!;";i ;	[ ;@;@o;;["> .dropdown > a .caret;o;;[o;;[
+">o;
+;[o;;["dropdown;" ;i;@Ü;o;;{ ;i;0">o;
+;[o;)	;*0;["a;@Ü;i;@Ü;o;;{ ;i;0o;
+;[o;;["
+caret;@Ü;i;@Ü;o;;{ ;i;0;@Ü;i;T;i;i ;	[o;;["border-top-color;o;#	;"navbar-inverse-link-color;$"navbar_inverse_link_color;i;@;i;!;";i ;	[ ;@o;;["border-bottom-color;o;#	;"navbar-inverse-link-color;$"navbar_inverse_link_color;i;@;i;!;";i ;	[ ;@;@o;;["> .open > a;o;;[o;;[	">o;
+;[o;;["	open;" ;i;@
+;o;;{ ;i;0">o;
+;[o;)	;*0;["a;@
+;i;@
+;o;;{ ;i;0;@
+;i;T;i;i ;	[o;;["$&,
+      &:hover,
+      &:focus;o;;[o;;[o;
+;[o;4;" ;i;@ ;o;;{ ;i;0o;;["
+o;
+;[o;4;@ ;io;5
+;60;["
+hover;;7;@ ;i;@ ;o;;{ ;i;0o;;["
+o;
+;[o;4;@ ;io;5
+;60;["
+focus;;7;@ ;i;@ ;o;;{ ;i;0;@ ;i;T;i;i ;	[o;;[".caret;o;;[o;;[o;
+;[o;;["
+caret;" ;i;@F;o;;{ ;i;0;@F;i;T;i;i ;	[o;;["border-top-color;o;#	;"%navbar-inverse-link-active-color;$"%navbar_inverse_link_active_color;i;@;i;!;";i ;	[ ;@o;;["border-bottom-color;o;#	;"%navbar-inverse-link-active-color;$"%navbar_inverse_link_active_color;i;@;i;!;";i ;	[ ;@;@;@;@;@;@o;
+
+;;;["R/* Responsive navbar
+ * -------------------------------------------------- */;i(;	[ ;@o:Sass::Tree::MediaNode;" ;T;i+:@query["screen"
+ and "(o;	;; ;"min-width;i+;@": o;#	;"grid-float-breakpoint;$"grid_float_breakpoint;i+;@");i ;	[
+o;;[".navbar-brand;o;;[o;;[o;
+;[o;;["navbar-brand;" ;i-;@v;o;;{ ;i-;0;@v;i-;T;i-;i ;	[o;;["
+float;o;;; ;"	left;@;i.;!;";i ;	[ ;@o;;["margin-left;o:!Sass::Script::UnaryOperation	;,;3;i/;@:@operando;#	;"navbar-padding-horizontal;$"navbar_padding_horizontal;i/;@;i/;!;";i ;	[ ;@o;;["margin-right;o;;; ;"5px;@;i0;!;";i ;	[ ;@;@o;;[".navbar-nav;o;;[o;;[o;
+;[o;;["navbar-nav;" ;i2;@š;o;;{ ;i2;0;@š;i2;T;i2;i ;	[o;;["
+float;o;;; ;"	left;@;i3;!;";i ;	[ ;@o;
+
+;;;["?/* undo margin to make nav extend full height of navbar */;i4;	[ ;@o;;["margin-top;o;;; ;"0;@;i5;!;";i ;	[ ;@o;;["margin-bottom;o;;; ;"0;@;i6;!;";i ;	[ ;@o;;["	> li;o;;[o;;[">o;
+;[o;)	;*0;["li;" ;i8;@Á;o;;{ ;i8;0;@Á;i8;T;i8;i ;	[o;;["
+float;o;;; ;"	left;@;i9;!;";i ;	[ ;@o;;["> a;o;;[o;;[">o;
+;[o;)	;*0;["a;" ;i:;@Ø;o;;{ ;i:;0;@Ø;i:;T;i:;i ;	[o;;["border-radius;o;;; ;"0;@;i;;!;";i ;	[ ;@;@;@o;;["&.pull-right;o;;[o;;[o;
+;[o;4;" ;i?o;;["pull-right;@ì;i?;@ì;o;;{ ;i?;0;@ì;i?;T;i?;i ;	[o;;["
+float;o;;; ;"
+right;@;i@;!;";i ;	[ ;@o;;["
+width;o;;; ;"	auto;@;iA;!;";i ;	[ ;@;@;@o;
+
+;;;["J/* Required to make the collapsing navbar work on regular desktops */;iE;	[ ;@o;;[".navbar-toggle;o;;[o;;[o;
+;[o;;["navbar-toggle;" ;iF;@	;o;;{ ;iF;0;@	;iF;T;iF;i ;	[	o;;["position;o;;; ;"relative;@;iG;!;";i ;	[ ;@o;;["top;o;;; ;"	auto;@;iH;!;";i ;	[ ;@o;;["	left;o;;; ;"	auto;@;iI;!;";i ;	[ ;@o;;["display;o;;; ;"	none;@;iJ;!;";i ;	[ ;@;@o;;[".nav-collapse.collapse;o;;[o;;[o;
+;[o;;["nav-collapse;" ;iLo;;["collapse;@7	;iL;@7	;o;;{ ;iL;0;@7	;iL;T;iL;i ;	[o;;["display;o;8	;[o;	;; ;"
+block;iM;@o;	;; ;"!important;iM;@;iM;9;:;@;iM;!;";i ;	[ ;@o;;["height;o;8	;[o;	;; ;"	auto;iN;@o;	;; ;"!important;iN;@;iN;9;:;@;iN;!;";i ;	[ ;@o;;["overflow;o;8	;[o;	;; ;"visible;iO;@o;	;; ;"!important;iO;@;iO;9;:;@;iO;!;";i ;	[ ;@;@;@o;
+
+;;;["f/* Buttons in navbars
+ *
+ * Vertically center a button within a navbar (when *not* in a form). */;iV;	[ ;@o;;[".navbar-btn;o;;[o;;[o;
+;[o;;["navbar-btn;" ;iZ;@l	;o;;{ ;iZ;0;@l	;iZ;T;iZ;i ;	[o;;["margin-top;o;+
+;,;-;.o;/
+;0[ ;i;i[;@;1@›;i[;2o;+
+;,;3;.o;#	;"input-height-base;$"input_height_base;i[;@;i[;2o;#	;"navbar-height;$"navbar_height;i[;@;@;@;i[;!;";i ;	[ ;@;@o;
+
+;;;["u/* Text in navbars
+ *
+ * Add a class to make any element properly align itself vertically within the navbars. */;i`;	[ ;@o;;[".navbar-text;o;;[o;;[o;
+;[o;;["navbar-text;" ;id;@Ž	;o;;{ ;id;0;@Ž	;id;T;id;i ;	[o;;["
+float;o;;; ;"	left;@;ie;!;";i ;	[ ;@o;;["padding;o;8	;[o;/;0[ ;i ;<"0;if;@;1@›o;#	;"navbar-padding-horizontal;$"navbar_padding_horizontal;if;@;if;9;:;@;if;!;";i ;	[ ;@o;%;&{ ;"navbar-vertical-align;ig;'0;	[ ;@;([o;#	;"line-height-computed;$"line_height_computed;ig;@;@o;
+
+;;;["k/* Links in navbars
+ *
+ * Add a class to ensure links outside the navbar nav are colored correctly. */;il;	[ ;@o;
+
+;;;["#/* Default navbar variables */;ip;	[ ;@o;;[".navbar-link;o;;[o;;[o;
+;[o;;["navbar-link;" ;iq;@À	;o;;{ ;iq;0;@À	;iq;T;iq;i ;	[o;;["
+color;o;#	;"navbar-link-color;$"navbar_link_color;ir;@;ir;!;";i ;	[ ;@o;;["&:hover;o;;[o;;[o;
+;[o;4;" ;iso;5
+;60;["
+hover;;7;@Õ	;is;@Õ	;o;;{ ;is;0;@Õ	;is;T;is;i ;	[o;;["
+color;o;#	;"navbar-link-hover-color;$"navbar_link_hover_color;it;@;it;!;";i ;	[ ;@;@;@o;
+
+;;;["+/* Use the inverse navbar variables */;ix;	[ ;@o;;["!.navbar-inverse .navbar-link;o;;[o;;[o;
+;[o;;["navbar-inverse;" ;iy;@ó	;o;;{ ;iy;0o;
+;[o;;["navbar-link;@ó	;iy;@ó	;o;;{ ;iy;0;@ó	;iy;T;iy;i ;	[o;;["
+color;o;#	;"navbar-inverse-link-color;$"navbar_inverse_link_color;iz;@;iz;!;";i ;	[ ;@o;;["&:hover;o;;[o;;[o;
+;[o;4;" ;i{o;5
+;60;["
+hover;;7;@
+;i{;@
+;o;;{ ;i{;0;@
+;i{;T;i{;i ;	[o;;["
+color;o;#	;"$navbar-inverse-link-hover-color;$"$navbar_inverse_link_hover_color;i|;@;i|;!;";i ;	[ ;@;@;@;@
