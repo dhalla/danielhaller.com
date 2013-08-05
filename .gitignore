@@ -8,6 +8,8 @@ nbproject
 *~
 ._*
 .DS_Store
+.sass-cache
+.sass-cache/*
 
 # Server-Logs
 /logs
